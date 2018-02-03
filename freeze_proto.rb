@@ -12,10 +12,15 @@ a = [1, 2, 3, 4]
 a << :freeze
 puts 'set :freeze'
 puts a.frozen?
-puts a[0].frozen?
+for i in a
+  puts "error #{i}" unless i.frozen?
+end
 
 b = [100, 'hoge', [1, 2], true]
 b << 'freeze'
 puts 'set freeze(String)'
 puts b.frozen?
-puts b[0].frozen?
+for i in b
+  puts "error #{i}" unless i.frozen?
+end
+
