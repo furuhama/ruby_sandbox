@@ -24,3 +24,6 @@ for i in b
   puts "error #{i}" unless i.frozen?
 end
 
+puts 'test'
+puts a.map(&:frozen?).inject {|prev, new| prev && new }
+
