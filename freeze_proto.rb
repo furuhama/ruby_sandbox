@@ -13,7 +13,6 @@ a << :freeze
 puts 'set :freeze'
 puts a.frozen?
 puts a[0].frozen?
-puts a.map(&:frozen?).inject(:and)
 
 b = [100, 'hoge', [1, 2], true]
 b << 'freeze'
