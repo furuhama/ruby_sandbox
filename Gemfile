@@ -9,4 +9,5 @@ gem "pry"
 gem "pry-doc"
 gem "lambda_driver"
 gem "rspec"
-
+gem "rcodetools"
+gem "fastri"
