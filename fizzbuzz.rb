@@ -14,5 +14,8 @@ class FizzBuzz
   end
 end
 
-puts (1..100).map(&FizzBuzz)
+if __FILE__ == $0
 
+  puts (1..100).map(&FizzBuzz)
+
+end
