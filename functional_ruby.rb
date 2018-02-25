@@ -30,10 +30,29 @@ end
 #   obj.to_s
 # end
 
+class MyCollection
+  def initialize(items)
+    @collection = items
+  end
+
+  def map(fn)
+    saved = []
+    @collection.each do |item|
+      saved << fn.call(item)
+    end
+    MyCollection.new(saved)
+  end
+end
+
 if __FILE__ == $0
   p add_10.call 4
 
   p add_5.call 10
 
   p use_to_proc
+
+  my_col = MyCollection.new([1, 2, 3])
+  my_col = my_col.map(add_10)
+
+  p my_col
 end
