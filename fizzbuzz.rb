@@ -16,6 +16,6 @@ end
 
 if __FILE__ == $0
 
-  puts (1..100).map(&FizzBuzz)
+  puts (1..10_000_000).map(&FizzBuzz)
 
 end
