@@ -45,12 +45,16 @@ class MyCollection
 end
 
 if __FILE__ == $0
+  # lambda
   p add_10.call 4
 
+  # proc
   p add_5.call 10
 
+  # use map & call symbolized method
   p use_to_proc
 
+  # original class
   my_col = MyCollection.new([1, 2, 3])
   my_col = my_col.map(add_10)
 
