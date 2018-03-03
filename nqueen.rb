@@ -6,6 +6,14 @@ class NQueen
     @queens = []
   end
 
+  def solver
+    generator
+
+    @queens.select! { |arr| checker(arr) }
+
+    printer
+  end
+
   def printer
     @queens.each do |queen|
       text = ""
@@ -19,15 +27,9 @@ class NQueen
         end
         text += "\n"
       end
+      text += "\n"
       puts text
     end
-  end
-
-  def solver
-    generator
-
-    # p @queens.select { |arr| checker(arr) }
-    p @queens.select! { |arr| arr[0] == 1 }
   end
 
   def generator
@@ -52,7 +54,7 @@ class NQueen
   def checker(board)
     (0..@size-2).each do |element|
       for pair in (element+1..@size-1)
-        if (board[element] - board[pair]).abs == element - pair
+        if (board[element] - board[pair]).abs == pair - element
           return false
         end
       end
