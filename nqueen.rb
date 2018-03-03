@@ -32,6 +32,8 @@ class NQueen
       text += "\n"
       puts text
     end
+
+    puts "the answers: #{@queens.length}"
   end
 
   # generate all possible queens
@@ -69,5 +71,5 @@ end
 
 # main process
 if __FILE__ == $0
-  NQueen.new.solver
+  NQueen.new(8).solver
 end
