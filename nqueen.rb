@@ -6,6 +6,7 @@ class NQueen
     @queens = []
   end
 
+  # main function
   def solver
     generator
 
@@ -14,6 +15,7 @@ class NQueen
     printer
   end
 
+  # print solutions
   def printer
     @queens.each do |queen|
       text = ""
@@ -32,6 +34,7 @@ class NQueen
     end
   end
 
+  # generate all possible queens
   def generator
     def permutator(unused, used)
       unless unused.empty?
@@ -51,6 +54,7 @@ class NQueen
     permutator((0..@size-1).to_a, [])
   end
 
+  # check quuens whether it matches conditions
   def checker(board)
     (0..@size-2).each do |element|
       for pair in (element+1..@size-1)
