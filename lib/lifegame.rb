@@ -26,7 +26,7 @@ class Lifegame
 
   def next_life(col, row)
     if lifes[col][row] == 1
-      if (count_surround_lives(col, row) == 2) && (count_surround_lives(col, row) == 3)
+      if (count_surround_lives(col, row) == 2) || (count_surround_lives(col, row) == 3)
         p 'alive -> alive', col, row
         next_lifes[col][row] = 1
       else
