@@ -29,7 +29,7 @@ class Lifegame
       printer
       printf "\e[#{size}A"
       self.next
-      sleep 0.2
+      sleep 0.1
     end
   end
 
@@ -93,7 +93,7 @@ class Lifegame
 end
 
 if __FILE__ == $0
-  lg = Lifegame.new
+  lg = Lifegame.new(40)
 
   # make glider
   lg.lifes[4][4] = 1
@@ -102,5 +102,5 @@ if __FILE__ == $0
   lg.lifes[5][4] = 1
   lg.lifes[6][5] = 1
 
-  lg.print_times 100
+  lg.print_times 200
 end
