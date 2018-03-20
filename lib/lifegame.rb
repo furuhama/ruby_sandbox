@@ -38,7 +38,7 @@ class Lifegame
     (0..size-1).each do |col|
       (0..size-1).each do |row|
         if lifes[col][row] == 1
-          lifegame += "\e[32m■\e[0m "
+          lifegame += "\e[32m■\e[0m " # this means green color square
         else
           lifegame += "□ "
         end
