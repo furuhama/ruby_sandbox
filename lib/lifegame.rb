@@ -1,14 +1,16 @@
 # Conway's Lifegame
 
 class Lifegame
-  attr_reader :lifes, :size
+  attr_reader :lifes, :next_lifes, :size
 
   def initialize(size = 8)
     @size = size
     @lifes = []
+    @next_lifes = []
 
     size.times do
       lifes << Array.new(size, 0)
+      next_lifes << Array.new(size, 0)
     end
     # board definition
     #
@@ -22,14 +24,14 @@ class Lifegame
     # ]
   end
 
-  def next_gen(col, row)
+  def next_life(col, row)
     if lifes[col][row] == 1
-      return if count_surround_lives(col, row) == 2 && count_surround_lives(col, row) == 3
+      return next_lifes[col][row] = 1 if count_surround_lives(col, row) == 2 && count_surround_lives(col, row) == 3
     else
-      return lifes[col][row] = 1 if count_surround_lives(col, row) == 3
+      return next_lifes[col][row] = 1 if count_surround_lives(col, row) == 3
     end
 
-    return lifes[col][row] = 0
+    return next_lifes[col][row] = 0
   end
 
   def count_surround_lives(col, row)
@@ -52,4 +54,5 @@ end
 if __FILE__ == $0
   lg = Lifegame.new
   p lg.lifes
+  lg.next_life(0, 0)
 end
