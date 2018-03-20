@@ -33,7 +33,26 @@ RSpec.describe 'Lifegame' do
   describe 'instance methods' do
     let(:lifegame) { Lifegame.new }
 
-    describe '#next_gen' do
+    describe '#next_life' do
+      describe 'middle of lifegame' do
+        context 'live -> live' do
+          before do
+            lifegame.lifes[4][4] = 1
+
+            lifegame.lifes[4][5] = 1
+            lifegame.lifes[3][4] = 1
+          end
+
+          it do
+            lifegame.next_life(4, 4)
+
+            expect(lifegame.next_lifes[4][4]).to eq 1
+          end
+        end
+      end
+
+      describe 'corner of lifegame' do
+      end
     end
 
     describe '#count_surround_lives' do
