@@ -24,6 +24,15 @@ class Lifegame
     # ]
   end
 
+  def print_times(time)
+    time.times do
+      printer
+      printf "\e[#{size}A"
+      self.next
+      sleep 0.2
+    end
+  end
+
   def printer
     lifegame = ""
     (0..size-1).each do |col|
@@ -37,7 +46,7 @@ class Lifegame
       lifegame += "\n"
     end
 
-    print lifegame
+    printf lifegame
   end
 
   def next
@@ -93,17 +102,5 @@ if __FILE__ == $0
   lg.lifes[5][4] = 1
   lg.lifes[6][5] = 1
 
-  lg.printer
-  p
-  lg.next
-  lg.printer
-  p
-  lg.next
-  lg.printer
-  p
-  lg.next
-  lg.printer
-  p
-  lg.next
-  lg.printer
+  lg.print_times 100
 end
