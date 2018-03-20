@@ -38,9 +38,9 @@ class Lifegame
     (0..size-1).each do |col|
       (0..size-1).each do |row|
         if lifes[col][row] == 1
-          lifegame += "0 "
+          lifegame += "\e[32m■\e[0m "
         else
-          lifegame += "_ "
+          lifegame += "□ "
         end
       end
       lifegame += "\n"
