@@ -184,6 +184,16 @@ RSpec.describe 'Lifegame' do
           it { is_expected.to eq 4 }
         end
 
+        context 'some lives stand in horizontal line' do
+          before do
+            lifegame.lifes[3][3] = 1
+            lifegame.lifes[4][3] = 1
+            lifegame.lifes[5][3] = 1
+          end
+
+          it { is_expected.to eq 3 }
+        end
+
         context 'some lives with center is alive' do
           before do
             lifegame.lifes[4][4] = 1
@@ -195,6 +205,18 @@ RSpec.describe 'Lifegame' do
           end
 
           it { is_expected.to eq 4 }
+        end
+
+        context 'some lives stand in horizontal line with its center is alive' do
+          before do
+            lifegame.lifes[4][4] = 1
+
+            lifegame.lifes[3][3] = 1
+            lifegame.lifes[4][3] = 1
+            lifegame.lifes[5][3] = 1
+          end
+
+          it { is_expected.to eq 3 }
         end
       end
 
