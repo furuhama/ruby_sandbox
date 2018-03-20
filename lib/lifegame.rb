@@ -37,10 +37,15 @@ class Lifegame
 
     (col-1..col+1).each do |col_num|
       (row-1..row+1).each do |row_num|
-        next if col_num == col && row_num == row
-        count += lifes[col_num][row_num]
+        # to think of corner cases,
+        # not to use col_num & row_num directly
+        # use the reminder of lifegame size
+        next if col_num%size == col && row_num%size == row
+        count += lifes[col_num%size][row_num%size]
       end
     end
+
+    count
   end
 end
 
