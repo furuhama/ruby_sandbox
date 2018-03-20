@@ -96,11 +96,52 @@ if __FILE__ == $0
   lg = Lifegame.new(40)
 
   # make glider
-  lg.lifes[4][4] = 1
-  lg.lifes[4][5] = 1
-  lg.lifes[4][6] = 1
+  # lg.lifes[1][4] = 1
+  # lg.lifes[4][5] = 1
+  # lg.lifes[4][6] = 1
+  # lg.lifes[5][4] = 1
+  # lg.lifes[6][5] = 1
+
+  # make glider generator
+  lg.lifes[1][27] = 1
+  lg.lifes[2][27] = 1
+  lg.lifes[2][25] = 1
+  lg.lifes[3][24] = 1
+  lg.lifes[3][23] = 1
+  lg.lifes[4][24] = 1
+  lg.lifes[4][23] = 1
+  lg.lifes[5][24] = 1
+  lg.lifes[5][23] = 1
+  lg.lifes[6][25] = 1
+  lg.lifes[6][27] = 1
+  lg.lifes[7][27] = 1
+
+  lg.lifes[3][37] = 1
+  lg.lifes[3][38] = 1
+  lg.lifes[4][37] = 1
+  lg.lifes[4][38] = 1
+
+  lg.lifes[3][15] = 1
+  lg.lifes[3][16] = 1
+  lg.lifes[4][14] = 1
+  lg.lifes[4][18] = 1
+  lg.lifes[5][13] = 1
+  lg.lifes[5][19] = 1
+  lg.lifes[6][13] = 1
+  lg.lifes[6][17] = 1
+  lg.lifes[6][19] = 1
+  lg.lifes[6][20] = 1
+  lg.lifes[7][13] = 1
+  lg.lifes[7][19] = 1
+  lg.lifes[8][14] = 1
+  lg.lifes[8][18] = 1
+  lg.lifes[9][15] = 1
+  lg.lifes[9][16] = 1
+
+  lg.lifes[5][3] = 1
   lg.lifes[5][4] = 1
-  lg.lifes[6][5] = 1
+  lg.lifes[6][3] = 1
+  lg.lifes[6][4] = 1
 
   lg.print_times 200
 end
