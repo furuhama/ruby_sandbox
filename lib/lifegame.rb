@@ -24,6 +24,16 @@ class Lifegame
     # ]
   end
 
+  def next
+    (0..size-1).each do |col|
+      (0..size-1).each do |row|
+        next_life(col, row)
+      end
+    end
+
+    @lifes = next_lifes.clone
+  end
+
   def next_life(col, row)
     if lifes[col][row] == 1
       if (count_surround_lives(col, row) == 2) || (count_surround_lives(col, row) == 3)
