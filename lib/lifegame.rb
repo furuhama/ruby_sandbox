@@ -86,9 +86,7 @@ end
 if __FILE__ == $0
   lg = Lifegame.new
 
-  lg.printer
-  p
-
+  # make glider
   lg.lifes[4][4] = 1
   lg.lifes[4][5] = 1
   lg.lifes[4][6] = 1
