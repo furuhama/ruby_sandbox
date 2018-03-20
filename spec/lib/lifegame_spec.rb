@@ -35,7 +35,7 @@ RSpec.describe 'Lifegame' do
 
     describe '#next_life' do
       describe 'middle of lifegame' do
-        context 'live -> live' do
+        context 'alive -> alive' do
           before do
             lifegame.lifes[4][4] = 1
 
@@ -49,9 +49,119 @@ RSpec.describe 'Lifegame' do
             expect(lifegame.next_lifes[4][4]).to eq 1
           end
         end
+
+        context 'alive -> dead' do
+          before do
+            lifegame.lifes[4][4] = 1
+
+            lifegame.lifes[4][5] = 1
+            lifegame.lifes[3][4] = 1
+            lifegame.lifes[3][3] = 1
+            lifegame.lifes[5][4] = 1
+          end
+
+          it do
+            lifegame.next_life(4, 4)
+
+            expect(lifegame.next_lifes[4][4]).to eq 0
+          end
+        end
+
+        context 'dead -> alive' do
+          before do
+            lifegame.lifes[4][4] = 0
+
+            lifegame.lifes[4][5] = 1
+            lifegame.lifes[3][4] = 1
+            lifegame.lifes[3][3] = 1
+          end
+
+          it do
+            lifegame.next_life(4, 4)
+
+            expect(lifegame.next_lifes[4][4]).to eq 1
+          end
+        end
+
+        context 'dead -> dead' do
+          before do
+            lifegame.lifes[4][4] = 0
+
+            lifegame.lifes[4][5] = 1
+            lifegame.lifes[3][4] = 1
+          end
+
+          it do
+            lifegame.next_life(4, 4)
+
+            expect(lifegame.next_lifes[4][4]).to eq 0
+          end
+        end
       end
 
       describe 'corner of lifegame' do
+        context 'alive -> alive' do
+          before do
+            lifegame.lifes[0][0] = 1
+
+            lifegame.lifes[7][7] = 1
+            lifegame.lifes[0][7] = 1
+          end
+
+          it do
+            lifegame.next_life(0, 0)
+
+            expect(lifegame.next_lifes[0][0]).to eq 1
+          end
+        end
+
+        context 'alive -> dead' do
+          before do
+            lifegame.lifes[0][0] = 1
+
+            lifegame.lifes[7][7] = 1
+            lifegame.lifes[0][7] = 1
+            lifegame.lifes[7][0] = 1
+            lifegame.lifes[0][1] = 1
+          end
+
+          it do
+            lifegame.next_life(0, 0)
+
+            expect(lifegame.next_lifes[0][0]).to eq 0
+          end
+        end
+
+        context 'dead -> alive' do
+          before do
+            lifegame.lifes[0][0] = 0
+
+            lifegame.lifes[7][7] = 1
+            lifegame.lifes[0][7] = 1
+            lifegame.lifes[7][0] = 1
+          end
+
+          it do
+            lifegame.next_life(0, 0)
+
+            expect(lifegame.next_lifes[0][0]).to eq 1
+          end
+        end
+
+        context 'dead -> dead' do
+          before do
+            lifegame.lifes[0][0] = 0
+
+            lifegame.lifes[7][7] = 1
+            lifegame.lifes[0][7] = 1
+          end
+
+          it do
+            lifegame.next_life(0, 0)
+
+            expect(lifegame.next_lifes[0][0]).to eq 0
+          end
+        end
       end
     end
 
