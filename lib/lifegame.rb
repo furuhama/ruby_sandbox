@@ -26,12 +26,22 @@ class Lifegame
 
   def next_life(col, row)
     if lifes[col][row] == 1
-      return next_lifes[col][row] = 1 if count_surround_lives(col, row) == 2 && count_surround_lives(col, row) == 3
+      if (count_surround_lives(col, row) == 2) && (count_surround_lives(col, row) == 3)
+        p 'alive -> alive', col, row
+        next_lifes[col][row] = 1
+      else
+        p 'alive -> dead', col, row
+        next_lifes[col][row] = 0
+      end
     else
-      return next_lifes[col][row] = 1 if count_surround_lives(col, row) == 3
+      if count_surround_lives(col, row) == 3
+        p 'dead -> alive', col, row
+        next_lifes[col][row] = 1
+      else
+        p 'dead -> dead', col, row
+        next_lifes[col][row] = 0
+      end
     end
-
-    return next_lifes[col][row] = 0
   end
 
   def count_surround_lives(col, row)
@@ -54,5 +64,8 @@ end
 if __FILE__ == $0
   lg = Lifegame.new
   p lg.lifes
+  lg.lifes[0, 1] = 1
+  lg.lifes[1, 0] = 1
+  p 'count', lg.count_surround_lives(0, 0)
   lg.next_life(0, 0)
 end
