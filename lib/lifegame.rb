@@ -31,7 +31,7 @@ class Lifegame
       end
     end
 
-    @lifes = next_lifes.clone
+    @lifes = Marshal.load(Marshal.dump(next_lifes))
   end
 
   def next_life(col, row)
