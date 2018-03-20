@@ -24,6 +24,22 @@ class Lifegame
     # ]
   end
 
+  def printer
+    lifegame = ""
+    (0..size-1).each do |col|
+      (0..size-1).each do |row|
+        if lifes[col][row] == 1
+          lifegame += "0 "
+        else
+          lifegame += "_ "
+        end
+      end
+      lifegame += "\n"
+    end
+
+    print lifegame
+  end
+
   def next
     (0..size-1).each do |col|
       (0..size-1).each do |row|
@@ -69,9 +85,27 @@ end
 
 if __FILE__ == $0
   lg = Lifegame.new
-  p lg.lifes
-  lg.lifes[0, 1] = 1
-  lg.lifes[1, 0] = 1
-  p 'count', lg.count_surround_lives(0, 0)
-  lg.next_life(0, 0)
+
+  lg.printer
+  p
+
+  lg.lifes[4][4] = 1
+  lg.lifes[4][5] = 1
+  lg.lifes[4][6] = 1
+  lg.lifes[5][4] = 1
+  lg.lifes[6][5] = 1
+
+  lg.printer
+  p
+  lg.next
+  lg.printer
+  p
+  lg.next
+  lg.printer
+  p
+  lg.next
+  lg.printer
+  p
+  lg.next
+  lg.printer
 end
