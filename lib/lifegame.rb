@@ -128,7 +128,7 @@ class Lifegame
       printer
       printf "\e[#{size}A"
       self.next
-      sleep 0.1
+      # sleep 0.1
     end
   end
 
@@ -194,7 +194,7 @@ end
 if __FILE__ == $0
   lg = Lifegame.new(60)
 
-  lg.set_template 'puffer-train'
+  lg.set_template 'glider-gun'
 
   lg.print_times 200
 end
