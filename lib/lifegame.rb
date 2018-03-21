@@ -38,7 +38,6 @@ class Lifegame
       lifes[4][6] = 1
       lifes[5][4] = 1
       lifes[6][5] = 1
-
     when 'glider-gun'
       if size < 40
         puts 'size is not enough'
@@ -85,6 +84,40 @@ class Lifegame
       lifes[5][4] = 1
       lifes[6][3] = 1
       lifes[6][4] = 1
+    when 'puffer-train'
+      if size < 12
+        puts 'size is not enough'
+        return
+      end
+
+      # make puffer train
+      lifes[4][1] = 1
+      lifes[4][2] = 1
+      lifes[5][1] = 1
+      lifes[5][2] = 1
+      lifes[5][3] = 1
+      lifes[6][1] = 1
+      lifes[6][2] = 1
+
+      lifes[1][6] = 1
+      lifes[1][7] = 1
+      lifes[1][8] = 1
+      lifes[1][9] = 1
+      lifes[2][5] = 1
+      lifes[2][9] = 1
+      lifes[3][9] = 1
+      lifes[4][5] = 1
+      lifes[4][8] = 1
+
+      lifes[6][5] = 1
+      lifes[6][8] = 1
+      lifes[7][9] = 1
+      lifes[8][5] = 1
+      lifes[8][9] = 1
+      lifes[9][6] = 1
+      lifes[9][7] = 1
+      lifes[9][8] = 1
+      lifes[9][9] = 1
     else
       puts 'unknown argument...'
     end
