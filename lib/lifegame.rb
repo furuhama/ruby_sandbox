@@ -127,13 +127,13 @@ class Lifegame
 
   def next_life(col, row)
     if lifes[col][row] == 1
-      if (count_surround_lives(col, row) == 2) || (count_surround_lives(col, row) == 3)
+      if (count_surround_lifes(col, row) == 2) || (count_surround_lifes(col, row) == 3)
         next_lifes[col][row] = 1
       else
         next_lifes[col][row] = 0
       end
     else
-      if count_surround_lives(col, row) == 3
+      if count_surround_lifes(col, row) == 3
         next_lifes[col][row] = 1
       else
         next_lifes[col][row] = 0
@@ -141,7 +141,7 @@ class Lifegame
     end
   end
 
-  def count_surround_lives(col, row)
+  def count_surround_lifes(col, row)
     count = 0
 
     (col-1..col+1).each do |col_num|
