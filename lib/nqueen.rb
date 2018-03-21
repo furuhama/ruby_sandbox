@@ -53,6 +53,7 @@ class NQueen
         @queens << used
       end
     end
+
     permutator((0..@size-1).to_a, [])
   end
 
@@ -65,6 +66,7 @@ class NQueen
         end
       end
     end
+
     return true
   end
 end
