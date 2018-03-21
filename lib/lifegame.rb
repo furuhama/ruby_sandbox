@@ -27,13 +27,24 @@ class Lifegame
   def set_template(name)
     case name
     when 'glider'
+      if size < 7
+        puts 'size is not enough'
+        return
+      end
+
       # make glider
       lifes[1][4] = 1
       lifes[4][5] = 1
       lifes[4][6] = 1
       lifes[5][4] = 1
       lifes[6][5] = 1
+
     when 'glider-gun'
+      if size < 40
+        puts 'size is not enough'
+        return
+      end
+
       # make glider gun
       lifes[1][27] = 1
       lifes[2][27] = 1
