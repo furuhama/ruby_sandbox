@@ -165,15 +165,15 @@ RSpec.describe 'Lifegame' do
       end
     end
 
-    describe '#count_surround_lives' do
+    describe '#count_surround_lifes' do
       describe 'middle of lifegame' do
-        subject { lifegame.count_surround_lives(4, 4) }
+        subject { lifegame.count_surround_lifes(4, 4) }
 
-        context 'no lives' do
+        context 'no lifes' do
           it { is_expected.to eq 0 }
         end
 
-        context 'some lives' do
+        context 'some lifes' do
           before do
             lifegame.lifes[3][4] = 1
             lifegame.lifes[4][3] = 1
@@ -184,7 +184,7 @@ RSpec.describe 'Lifegame' do
           it { is_expected.to eq 4 }
         end
 
-        context 'some lives stand in horizontal line' do
+        context 'some lifes stand in horizontal line' do
           before do
             lifegame.lifes[3][3] = 1
             lifegame.lifes[4][3] = 1
@@ -194,7 +194,7 @@ RSpec.describe 'Lifegame' do
           it { is_expected.to eq 3 }
         end
 
-        context 'some lives with center is alive' do
+        context 'some lifes with center is alive' do
           before do
             lifegame.lifes[4][4] = 1
 
@@ -207,7 +207,7 @@ RSpec.describe 'Lifegame' do
           it { is_expected.to eq 4 }
         end
 
-        context 'some lives stand in horizontal line with its center is alive' do
+        context 'some lifes stand in horizontal line with its center is alive' do
           before do
             lifegame.lifes[4][4] = 1
 
@@ -221,13 +221,13 @@ RSpec.describe 'Lifegame' do
       end
 
       describe 'corner of lifegame' do
-        subject { lifegame.count_surround_lives(0, 0) }
+        subject { lifegame.count_surround_lifes(0, 0) }
 
-        context 'no lives' do
+        context 'no lifes' do
           it { is_expected.to eq 0 }
         end
 
-        context 'some lives' do
+        context 'some lifes' do
           before do
             lifegame.lifes[0][1] = 1
             lifegame.lifes[7][7] = 1
@@ -238,7 +238,7 @@ RSpec.describe 'Lifegame' do
           it { is_expected.to eq 4 }
         end
 
-        context 'some lives with its center is alive' do
+        context 'some lifes with its center is alive' do
           before do
             lifegame.lifes[0][0] = 1
 
