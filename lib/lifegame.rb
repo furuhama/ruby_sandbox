@@ -24,6 +24,61 @@ class Lifegame
     # ]
   end
 
+  def set_template(name)
+    case name
+    when 'glider'
+      # make glider
+      lifes[1][4] = 1
+      lifes[4][5] = 1
+      lifes[4][6] = 1
+      lifes[5][4] = 1
+      lifes[6][5] = 1
+    when 'glider-gun'
+      # make glider gun
+      lifes[1][27] = 1
+      lifes[2][27] = 1
+      lifes[2][25] = 1
+      lifes[3][24] = 1
+      lifes[3][23] = 1
+      lifes[4][24] = 1
+      lifes[4][23] = 1
+      lifes[5][24] = 1
+      lifes[5][23] = 1
+      lifes[6][25] = 1
+      lifes[6][27] = 1
+      lifes[7][27] = 1
+
+      lifes[3][37] = 1
+      lifes[3][38] = 1
+      lifes[4][37] = 1
+      lifes[4][38] = 1
+
+      lifes[3][15] = 1
+      lifes[3][16] = 1
+      lifes[4][14] = 1
+      lifes[4][18] = 1
+      lifes[5][13] = 1
+      lifes[5][19] = 1
+      lifes[6][13] = 1
+      lifes[6][17] = 1
+      lifes[6][19] = 1
+      lifes[6][20] = 1
+      lifes[7][13] = 1
+      lifes[7][19] = 1
+      lifes[8][14] = 1
+      lifes[8][18] = 1
+      lifes[9][15] = 1
+      lifes[9][16] = 1
+
+      lifes[5][3] = 1
+      lifes[5][4] = 1
+      lifes[6][3] = 1
+      lifes[6][4] = 1
+    else
+      puts 'unknown argument...'
+    end
+  end
+
   def print_times(time)
     time.times do
       printer
@@ -95,53 +150,6 @@ end
 if __FILE__ == $0
   lg = Lifegame.new(40)
 
-  # make glider
-  # lg.lifes[1][4] = 1
-  # lg.lifes[4][5] = 1
-  # lg.lifes[4][6] = 1
-  # lg.lifes[5][4] = 1
-  # lg.lifes[6][5] = 1
-
-  # make glider generator
-  lg.lifes[1][27] = 1
-  lg.lifes[2][27] = 1
-  lg.lifes[2][25] = 1
-  lg.lifes[3][24] = 1
-  lg.lifes[3][23] = 1
-  lg.lifes[4][24] = 1
-  lg.lifes[4][23] = 1
-  lg.lifes[5][24] = 1
-  lg.lifes[5][23] = 1
-  lg.lifes[6][25] = 1
-  lg.lifes[6][27] = 1
-  lg.lifes[7][27] = 1
-
-  lg.lifes[3][37] = 1
-  lg.lifes[3][38] = 1
-  lg.lifes[4][37] = 1
-  lg.lifes[4][38] = 1
-
-  lg.lifes[3][15] = 1
-  lg.lifes[3][16] = 1
-  lg.lifes[4][14] = 1
-  lg.lifes[4][18] = 1
-  lg.lifes[5][13] = 1
-  lg.lifes[5][19] = 1
-  lg.lifes[6][13] = 1
-  lg.lifes[6][17] = 1
-  lg.lifes[6][19] = 1
-  lg.lifes[6][20] = 1
-  lg.lifes[7][13] = 1
-  lg.lifes[7][19] = 1
-  lg.lifes[8][14] = 1
-  lg.lifes[8][18] = 1
-  lg.lifes[9][15] = 1
-  lg.lifes[9][16] = 1
-
-  lg.lifes[5][3] = 1
-  lg.lifes[5][4] = 1
-  lg.lifes[6][3] = 1
-  lg.lifes[6][4] = 1
 
   lg.print_times 200
 end
