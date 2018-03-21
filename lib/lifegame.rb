@@ -150,6 +150,7 @@ end
 if __FILE__ == $0
   lg = Lifegame.new(40)
 
+  lg.set_template 'glider-gun'
 
   lg.print_times 200
 end
