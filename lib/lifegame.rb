@@ -192,9 +192,9 @@ class Lifegame
 end
 
 if __FILE__ == $0
-  lg = Lifegame.new(60)
+  lg = Lifegame.new(100)
 
   lg.set_template 'glider-gun'
 
-  lg.print_times 200
+  lg.print_times 500
 end
