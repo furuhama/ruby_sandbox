@@ -8,7 +8,7 @@ url = 'http://www.soumu.go.jp/toukei_toukatsu/index/seido/sangyo/02toukatsu01_03
 html = open(url).read
 doc = Nokogiri::HTML(html, url)
 
-gyoshu = doc.xpath('//h3') # Nokogiti::XML::NodeSet
+gyoshu = doc.xpath('//h3') # Nokogiri::XML::NodeSet
 
 gyoshu.each do |node|
   str = node.children.text
