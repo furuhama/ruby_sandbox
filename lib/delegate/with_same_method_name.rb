@@ -8,7 +8,7 @@ class ParentCat
   end
 end
 
-class ChildCat < ParentCat
+class ChildCat
   extend Forwardable
 
   delegate mew: :@delegator
