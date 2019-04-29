@@ -135,3 +135,38 @@ puts RubyVM::InstructionSequence.compile(code4).disasm
 # 0007 getlocal_WC_0                c@2
 # 0009 opt_plus                     <callinfo!mid:+, argc:1, ARGS_SIMPLE>, <callcache>
 # 0012 leave                                                            (   3)[Re]
+
+code5 = <<~CODE
+  class Hoge
+    def fuga
+      10
+    end
+  end
+
+  puts Hoge.new.fuga
+CODE
+puts RubyVM::InstructionSequence.compile(code5).disasm
+# == disasm: #<ISeq:<compiled>@<compiled>:1 (1,0)-(7,18)> (catch: FALSE)
+# 0000 putspecialobject             3                                   (   1)[Li]
+# 0002 putnil
+# 0003 defineclass                  :Hoge, <class:Hoge>, 0
+# 0007 pop
+# 0008 putself                                                          (   7)[Li]
+# 0009 opt_getinlinecache           16, <is:0>
+# 0012 getconstant                  :Hoge
+# 0014 opt_setinlinecache           <is:0>
+# 0016 opt_send_without_block       <callinfo!mid:new, argc:0, ARGS_SIMPLE>, <callcache>
+# 0019 opt_send_without_block       <callinfo!mid:fuga, argc:0, ARGS_SIMPLE>, <callcache>
+# 0022 opt_send_without_block       <callinfo!mid:puts, argc:1, FCALL|ARGS_SIMPLE>, <callcache>
+# 0025 leave
+
+# == disasm: #<ISeq:<class:Hoge>@<compiled>:1 (1,0)-(5,3)> (catch: FALSE)
+# 0000 putspecialobject             1                                   (   2)[LiCl]
+# 0002 putobject                    :fuga
+# 0004 putiseq                      fuga
+# 0006 opt_send_without_block       <callinfo!mid:core#define_method, argc:2, ARGS_SIMPLE>, <callcache>
+# 0009 leave                                                            (   5)[En]
+
+# == disasm: #<ISeq:fuga@<compiled>:2 (2,2)-(4,5)> (catch: FALSE)
+# 0000 putobject                    10                                  (   3)[LiCa]
+# 0002 leave                                                            (   4)[Re]
